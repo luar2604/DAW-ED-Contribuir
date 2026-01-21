@@ -2,7 +2,7 @@
 
 Un proyecto educativo en Java para aprender a hacer contribuciones open source mediante pull requests.
 
-## 🎯 Objetivo del Proyecto
+## Objetivo del Proyecto
 
 Este proyecto está diseñado específicamente para que estudiantes y principiantes practiquen:
 - Hacer fork de repositorios
@@ -12,14 +12,14 @@ Este proyecto está diseñado específicamente para que estudiantes y principian
 - Trabajar con issues de GitHub
 - Colaborar en proyectos de código abierto
 
-## ✨ Características
+## Características
 
 - ✅ Gestión de libros (agregar, buscar, listar)
 - ✅ Sistema de préstamos
 - ✅ Devolución de libros
 - ✅ Interfaz de consola interactiva
 
-## 🚀 Cómo empezar
+## Cómo empezar
 
 ### Requisitos previos
 
@@ -46,7 +46,7 @@ javac -d bin src/com/biblioteca/**/*.java src/com/biblioteca/*.java
 java -cp bin com.biblioteca.BibliotecaApp
 ```
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 biblioteca-java/
@@ -62,7 +62,7 @@ biblioteca-java/
 └── README.md                           # Este archivo
 ```
 
-## 🤝 Cómo Contribuir
+## Cómo Contribuir
 
 ¡Todas las contribuciones son bienvenidas! Este proyecto tiene **30 issues** listas para que las trabajes.
 
@@ -91,7 +91,7 @@ Busca issues con la etiqueta `good first issue` - ¡son perfectas para empezar! 
 0. Salir
 ```
 
-## 🎓 Lo que Aprenderás
+## Lo que Aprenderás
 
 Al contribuir a este proyecto, aprenderás:
 
@@ -106,14 +106,14 @@ Al contribuir a este proyecto, aprenderás:
 
 Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
 
-## 💬 Contacto y Soporte
+## Contacto y Soporte
 
-- 🐛 ¿Encontraste un bug? [Abre un issue](../../issues/new)
-- 💡 ¿Tienes una idea? [Compártela en las discusiones](../../discussions)
-- ❓ ¿Necesitas ayuda? Pregunta en los comentarios de la issue
+- ¿Encontraste un bug? [Abre un issue](../../issues/new)
+- ¿Tienes una idea? [Compártela en las discusiones](../../discussions)
+- ¿Necesitas ayuda? Pregunta en los comentarios de la issue
 
 ---
 
-**¿Listo para tu primera contribución?** 🚀
+**¿Listo para tu primera contribución?**
 
-[👉 Empieza aquí: Guía de Contribución](CONTRIBUTING.md)
+[Empieza aquí: Guía de Contribución](CONTRIBUTING.md)
