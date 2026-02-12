@@ -4,7 +4,6 @@ import com.biblioteca.modelo.*;
 import com.biblioteca.servicio.*;
 import java.util.Scanner;
 
-//cambio
 /**
  * Clase principal del Sistema de Gestión de Biblioteca
  * Este es un proyecto educativo para practicar pull requests
@@ -95,13 +94,25 @@ public class BibliotecaApp {
         String autor = scanner.nextLine();
         System.out.print("ISBN: ");
         String isbn = scanner.nextLine();
-        //Validar que el año esté entre 1450(invencion de la imprenta) y el año actual
-        //Pedir de nuevo el año nuevamente
-        int año; //Creo la variable año antes porque se no me da error
+
+        int año = 0; 
+        boolean valido = false;
+        
+        
         do{
-                System.out.print("Año de publicación: ");
-                año = Integer.parseInt(scanner.nextLine());
-                //Mostrar mensaje de eror si es invalido
+                do {
+                    System.out.print("Año de publicación: ");
+                    String input = scanner.nextLine();
+
+                    try {
+                        año = Integer.parseInt(input);
+                        valido = true;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error: Debes introducir un número válido.");
+                    }
+
+                } while (!valido);
+                
                 if((año < 1450) || (año > 2026))
                 {
                     System.out.println("Error: el año debe estar entre 1450 y 2026");
