@@ -43,6 +43,9 @@ public class BibliotecaApp {
                 case 6:
                     listarPrestamos();
                     break;
+                case 7:
+                    calificarLibro();
+                    break;
                 case 0:
                     continuar = false;
                     System.out.println("¡Hasta pronto!");
@@ -56,13 +59,13 @@ public class BibliotecaApp {
     }
     
     private static void mostrarMenu() {
-        System.out.println("\n--- MENÚ PRINCIPAL ---");
         System.out.println("1. Listar todos los libros");
         System.out.println("2. Agregar nuevo libro");
         System.out.println("3. Buscar libro");
         System.out.println("4. Prestar libro");
         System.out.println("5. Devolver libro");
         System.out.println("6. Listar préstamos activos");
+        System.out.println("7. Calificar libro");
         System.out.println("0. Salir");
         System.out.print("Seleccione una opción: ");
     }
@@ -85,7 +88,7 @@ public class BibliotecaApp {
         System.out.println("\n=== LIBROS DISPONIBLES ===");
         bibliotecaServicio.listarLibros();
     }
-    
+
     private static void agregarLibro() {
         System.out.println("\n=== AGREGAR NUEVO LIBRO ===");
         System.out.print("Título: ");
@@ -96,7 +99,7 @@ public class BibliotecaApp {
         String isbn = scanner.nextLine();
         System.out.print("Año de publicación: ");
         int año = Integer.parseInt(scanner.nextLine());
-        
+
         Libro libro = new Libro(titulo, autor, isbn, año);
         bibliotecaServicio.agregarLibro(libro);
         System.out.println("Libro agregado exitosamente!");
@@ -138,4 +141,33 @@ public class BibliotecaApp {
         System.out.println("\n=== PRÉSTAMOS ACTIVOS ===");
         bibliotecaServicio.listarPrestamosActivos();
     }
+
+    private static void calificarLibro() {
+        System.out.print("\nIngrese ISBN del libro: ");
+        String isbn = scanner.nextLine();
+
+        // Buscar el libro usando el servicio
+        Libro libro = bibliotecaServicio.buscarLibroPorIsbn(isbn);
+
+        if (libro == null) {
+            System.out.println("No se encontró ningún libro con ese ISBN.");
+            return;
+        }
+
+        System.out.print("Usuario: ");
+        String usuario = scanner.nextLine();
+
+        System.out.print("Puntuación (1 a 10): ");
+        int puntuacion = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Comentario: ");
+        String comentario = scanner.nextLine();
+
+        Calificacion cal = new Calificacion(usuario, libro, puntuacion, comentario);
+        libro.agregarCalificacion(cal);
+
+        System.out.println("Calificación agregada correctamente.");
+        System.out.println("Promedio actual: " + libro.calcularPromedio());
+    }
+
 }
