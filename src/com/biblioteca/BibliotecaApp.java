@@ -2,6 +2,7 @@ package com.biblioteca;
 
 import com.biblioteca.modelo.*;
 import com.biblioteca.servicio.*;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -98,6 +99,7 @@ public class BibliotecaApp {
         int año = 0; 
         boolean valido = false;
         
+        int añoActual = LocalDate.now().getYear();
         
         do{
                 do {
@@ -113,12 +115,11 @@ public class BibliotecaApp {
 
                 } while (!valido);
                 
-                if((año < 1450) || (año > 2026))
+                if((año < 1450) || (año > añoActual))
                 {
                     System.out.println("Error: el año debe estar entre 1450 y 2026");
                 }
-            } while((año < 1450) || (año > 2026));
-        
+            } while((año < 1450) || (año > añoActual));
         
         Libro libro = new Libro(titulo, autor, isbn, año);
         bibliotecaServicio.agregarLibro(libro);
