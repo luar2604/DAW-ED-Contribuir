@@ -2,6 +2,7 @@ package com.biblioteca;
 
 import com.biblioteca.modelo.*;
 import com.biblioteca.servicio.*;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -94,8 +95,31 @@ public class BibliotecaApp {
         String autor = scanner.nextLine();
         System.out.print("ISBN: ");
         String isbn = scanner.nextLine();
-        System.out.print("Año de publicación: ");
-        int año = Integer.parseInt(scanner.nextLine());
+
+        int año = 0; 
+        boolean valido = false;
+        
+        int añoActual = LocalDate.now().getYear();
+        
+        do{
+                do {
+                    System.out.print("Año de publicación: ");
+                    String input = scanner.nextLine();
+
+                    try {
+                        año = Integer.parseInt(input);
+                        valido = true;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error: Debes introducir un número válido.");
+                    }
+
+                } while (!valido);
+                
+                if((año < 1450) || (año > añoActual))
+                {
+                    System.out.println("Error: el año debe estar entre 1450 y 2026");
+                }
+            } while((año < 1450) || (año > añoActual));
         
         Libro libro = new Libro(titulo, autor, isbn, año);
         bibliotecaServicio.agregarLibro(libro);
